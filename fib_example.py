@@ -16,7 +16,6 @@ def fib_dynamic(n):
 def fib_closed_form(n):
     return int(round(1/(sqrt(5))*((1+sqrt(5))/2)**n - (1/(sqrt(5))*((1-sqrt(5))/2)**n)))
     
-
 if __name__ == "__main__":
     fib = interchangeable(fib_closed_form, fib_dynamic)
     start = time.time()
