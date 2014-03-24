@@ -50,12 +50,13 @@ if __name__ == "__main__":
     start = time.time()
     for i in range(3500):
         prime_factors(i)
+    choosing_time = time.time() - start
     print "choosing took ", time.time() - start, " seconds"
     start = time.time()
     for i in range(3500):
-        prime_factors(i)
-    print "set only took ", time.time() - start, " seconds"
+        pre_calculate_prime_factors(i)
+    print "pre_calculate took ", (time.time() - start) - choosing_time, " more seconds than choosing"
     start = time.time()
     for i in range(3500):
         naive_prime_factors(i)
-    print "naive only took ", time.time() - start, " seconds"
+    print "naive took ", (time.time() - start) - choosing_time, " more seconds than choosing"

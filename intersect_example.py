@@ -22,12 +22,13 @@ if __name__ == "__main__":
     start = time.time()
     for i in range(350):
         intersection(range(i),range(i*2))
-    print "choosing took ", time.time() - start, " seconds"
-    start = time.time()
-    for i in range(350):
-        set_intersection(range(i),range(i*2))
-    print "set only took ", time.time() - start, " seconds"
+    choosing_time = time.time() - start
+    print "choosing took ", choosing_time, " seconds"
     start = time.time()
     for i in range(350):
         naive_intersection(range(i),range(i*2))
-    print "naive only took ", time.time() - start, " seconds"
+    print "naive took ", (time.time() - start) - choosing_time, " more seconds than choosing"
+    start = time.time()
+    for i in range(350):
+        set_intersection(range(i),range(i*2))
+    print "set intersection took ", (time.time() - start) - choosing_time, " more seconds than choosing"

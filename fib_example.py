@@ -27,8 +27,13 @@ if __name__ == "__main__":
     start = time.time()
     for i in range(350):
         print fib(i)
-    print "took ", time.time() - start, " seconds"
+    choosing_time = time.time() - start
+    print "choosing took ", choosing_time, " seconds"
     start = time.time()
     for i in range(350):
-        print fib_closed_form(i)
-    print "took ", time.time() - start, " seconds"
+        fib_dynamic(i)
+    print "fib_dyanmic took ", (time.time() - start) - choosing_time, " more seconds than choosing"
+    start = time.time()
+    for i in range(350):
+        fib_closed_form(i)
+    print "closed took ", (time.time() - start) - choosing_time, " more seconds than choosing"

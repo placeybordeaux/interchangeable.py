@@ -31,7 +31,6 @@ class interchangeable:
                     fastest = f
                     fastest_time = sum(times)/float(len(times))
         if fastest:
-            print "choose: ", fastest.func_name
             return fastest
         else:
             return random.choice(self.functions)
