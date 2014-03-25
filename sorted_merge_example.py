@@ -14,8 +14,16 @@ def merge_sort_merge(lista,listb):
     i = 0
     j = 0
     ret = []
-    while i < len(a) and j < len(b):
-        if a[i] <= b[j]:
+    lena = len(a)
+    lenb = len(b)
+    while i < lena or j < lenb:
+        if i == lena:
+            ret.append(b[j])
+            j += 1
+        elif j == lenb:
+            ret.append(a[i])
+            i += 1
+        elif a[i] <= b[j]:
             ret.append(a[i])
             i += 1
         else:
@@ -28,7 +36,7 @@ if __name__ == "__main__":
     start = time.time()
     merge.learning = True
     for i in range(350):
-        a = range(i)
+        a = range(i*10)
         b = range(i,351)
         random.shuffle(a)
         random.shuffle(b)
@@ -37,7 +45,7 @@ if __name__ == "__main__":
     merge.learning = False
     start = time.time()
     for i in range(350):
-        a = range(i)
+        a = range(i*10)
         b = range(i,351)
         random.shuffle(a)
         random.shuffle(b)
@@ -46,7 +54,7 @@ if __name__ == "__main__":
     print "choosing took ", choosing_time, " seconds"
     start = time.time()
     for i in range(350):
-        a = range(i)
+        a = range(i*10)
         b = range(i,351)
         random.shuffle(a)
         random.shuffle(b)
@@ -54,7 +62,7 @@ if __name__ == "__main__":
     print "naive took ", (time.time() - start) - choosing_time, " more seconds than choosing"
     start = time.time()
     for i in range(350):
-        a = range(i)
+        a = range(i*10)
         b = range(i,351)
         random.shuffle(a)
         random.shuffle(b)
@@ -62,7 +70,7 @@ if __name__ == "__main__":
     print "merge_sort_merge took ", (time.time() - start) - choosing_time, " more seconds than choosing"
     start = time.time()
     for i in range(350):
-        a = range(i)
+        a = range(i*10)
         b = range(i,351)
         random.shuffle(a)
         random.shuffle(b)
